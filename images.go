@@ -11,7 +11,7 @@ func findImages(postId *string) ([]image, error) {
 	defer rows.Close()
 	for rows.Next() {
 		var image image
-		if err := rows.Scan(&image.Id, &image.Url, &image.Url); err != nil {
+		if err := rows.Scan(&image.Id, &image.Url, &image.Url, &image.PostId); err != nil {
 			return nil, fmt.Errorf("images %q:%v", *postId, err)
 		}
 		images = append(images, image)
