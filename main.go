@@ -12,8 +12,12 @@ func main() {
 	posts := router.Group("/posts")
 	{
 		posts.GET("", getPosts)
+		posts.POST("", postPost)
 
 	}
 	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
 	router.Run(":" + port)
 }

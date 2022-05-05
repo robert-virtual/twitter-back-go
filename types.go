@@ -4,11 +4,11 @@ package main
 // accedibles de lo contrario seran campos privados
 
 type post struct {
-	Id        string   `json:"id"`
-	Content   string   `json:"content"`
-	Images    *[]image `json:"images"` //lista de imagenes
-	UserId    string   `json:"userId"`
-	CreatedAt string   `json:"cretaedAt"`
+	Id        *string  `json:"id"`        //db
+	Content   string   `json:"content"`   //db
+	Images    *[]image `json:"images"`    //lista de imagenes
+	UserId    string   `json:"userId"`    //db
+	CreatedAt *string  `json:"cretaedAt"` //db
 	User      *user    `json:"user"`
 }
 type user struct {
