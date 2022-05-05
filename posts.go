@@ -57,9 +57,12 @@ func findPosts() ([]post, error) {
 		if images, err := findImages(post.Id); err == nil {
 			post.Images = &images
 		}
-		if user, err := findUser(post.UserId); err == nil {
+		user, err := findUser(post.UserId)
+		if err == nil {
 			user.Password = nil
 			post.User = user
+		} else {
+			fmt.Println(err)
 		}
 		posts = append(posts, post)
 
