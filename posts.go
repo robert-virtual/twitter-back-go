@@ -70,6 +70,7 @@ func findPosts() ([]post, error) {
 	return posts, nil
 
 }
+
 func createPost(post post) (int64, error) {
 	res, err := db.Exec("insert into posts(content,userId) values (?,?)", post.Content, post.UserId)
 	if err != nil {

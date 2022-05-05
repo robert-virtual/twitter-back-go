@@ -4,7 +4,10 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
+	"github.com/matthewhartstonge/argon2"
 )
+
+var argon = argon2.DefaultConfig()
 
 func main() {
 	createConnection()
@@ -13,6 +16,12 @@ func main() {
 	{
 		posts.GET("", getPosts)
 		posts.POST("", postPost)
+
+	}
+	users := router.Group("/users")
+	{
+		users.GET("", getUsers)
+		users.POST("", postUser)
 
 	}
 	port := os.Getenv("PORT")

@@ -8,17 +8,19 @@ type post struct {
 	Content   string   `json:"content"`   //db
 	Images    *[]image `json:"images"`    //lista de imagenes
 	UserId    string   `json:"userId"`    //db
-	CreatedAt *string  `json:"cretaedAt"` //db
+	CreatedAt *string  `json:"createdAt"` //db
 	User      *user    `json:"user"`
 }
 type user struct {
-	Id       string  `json:"id"`
-	Name     string  `json:"name"`
-	UserName string  `json:"username"`
-	Password *string `json:"password"` // es tipo *string es un  puntero a un string en este caso lo uso solo para poder dejar este campo en null
+	Id        *string `json:"id"`
+	Name      string  `json:"name"`
+	UserName  string  `json:"username"`
+	Password  *string `json:"password"`  // es tipo *string es un  puntero a un string en este caso lo uso solo para poder dejar este campo en null
+	CreatedAt *string `json:"createdAt"` //db
+	Posts     *[]post `json:"posts"`
 }
 type image struct {
-	Id     string `json:"id"`
-	Url    string `json:"url"`
-	PostId string `json:"postId"`
+	Id     *string `json:"id"`
+	Url    string  `json:"url"`
+	PostId string  `json:"postId"`
 }
